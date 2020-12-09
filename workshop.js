@@ -15,7 +15,7 @@ $(getMoreBlock).append(workshopButton)
 //
 workshopButton.onclick = function getMenu() {
 
-    // Хрень-меню
+    // РҐСЂРµРЅСЊ-РјРµРЅСЋ
 
     workshopMenu.style.position = 'absolute'
     workshopMenu.style.zIndex = 1
@@ -28,7 +28,7 @@ workshopButton.onclick = function getMenu() {
     workshopMenu.style.border = 2 + 'px solid #6898DD'
     workshopMenu.innerHTML = '<h1> Workshop! </h1>'
 
-    // Хрень-блок со скриптами и говнокодом
+    // РҐСЂРµРЅСЊ-Р±Р»РѕРє СЃРѕ СЃРєСЂРёРїС‚Р°РјРё Рё РіРѕРІРЅРѕРєРѕРґРѕРј
     const workshopBlockLazzi = document.createElement('div')
     const workshopBlockRynus = document.createElement('div')
     const workshopBlockSilverBoss = document.createElement('div')
@@ -37,9 +37,9 @@ workshopButton.onclick = function getMenu() {
     const RynusButton = document.createElement('button')
     const SilverButton = document.createElement('button')
 
-    const lazziLink = 'https://github.com/Lazzi0706/LanguageChangerForLWG'
-    const rynusLink = ''
-    const silverLink = 'https://github.com/silverbossTD/project_js_lwg/blob/main/pestBtnIgnore.js'
+    const lazziLink = new Map([['Workshop', 'https://github.com/Lazzi0706/workshop-lwg/blob/main/workshop.js'], ['Language', 'https://github.com/Lazzi0706/workshop-lwg/blob/main/workshop.js']])
+    const rynusLink = new Map
+    const silverLink = new Map
     //
     workshopBlockLazzi.classList.add('gold_buy_div')
     workshopBlockRynus.classList.add('gold_buy_div')
@@ -47,13 +47,25 @@ workshopButton.onclick = function getMenu() {
 
 
     LazziButton.innerHTML = "Lazzi"
-    LazziButton.onclick = () => window.open(lazziLink)
+    LazziButton.onclick = () => {
+
+        for (let [value,key] of lazziLink) {
+
+            const a = document.createElement('div');
+            a.style.background = 'cyan';
+            a.innerHTML = "<a>" + value + "</a>"
+            $('#workshopMenuId').append(a)
+            console.log(value)
+
+        };
+        
+    }
 
     RynusButton.innerHTML = "Rynus"
-    RynusButton.onclick = () => window.open(rynusLink)
+    RynusButton.onclick
 
     SilverButton.innerHTML = "Silverboss"
-    SilverButton.onclick = () => window.open(silverLink)
+    SilverButton.onclick
 
     // Close button
     workshopClose.innerHTML = 'Close'
