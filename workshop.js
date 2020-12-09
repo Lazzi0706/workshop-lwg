@@ -53,7 +53,7 @@ workshopButton.onclick = function getMenu() {
     workshopBlockRynus.classList.add('gold_buy_div')
     workshopBlockSilverBoss.classList.add('gold_buy_div')
 
-
+// Test part
     LazziButton.innerHTML = "Lazzi"
     LazziButton.onclick = () => {
 
