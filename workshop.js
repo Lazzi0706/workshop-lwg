@@ -51,9 +51,10 @@ workshopButton.onclick = function getMenu() {
 
         for (let [value,key] of lazziLink) {
 
-            const a = document.createElement('div');
+            const a = document.createElement('div'); 
             a.style.background = 'cyan';
             a.innerHTML = "<a>" + value + "</a>"
+            a.onclick = () => window.open(key);
             $('#workshopMenuId').append(a)
             console.log(value)
 
