@@ -1,3 +1,11 @@
+/*
+*
+*                 Workshop menu
+*   Description: allows you to store links to custom modifications in the "Workshop".
+*   Version: early alpha
+*
+*                                           Made by: Lazzi
+*/
 const getMoreBlock = document.getElementById('playerGoldWrap')
 const workshopButton = document.createElement('button')
 const workshopClose = document.createElement('button');
