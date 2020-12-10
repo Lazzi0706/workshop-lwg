@@ -14,7 +14,7 @@ const workshopMenu = document.createElement('div')
 
 
 // init
-function createEl(node, text) {
+function createEl(node, appearZone ,text) {
     node.style.position = 'absolute'
     node.style.zIndex = 1;
     node.style.width = 650 + 'px'
@@ -25,7 +25,7 @@ function createEl(node, text) {
     node.style.background = '#275494'
     node.style.border = 2 + 'px solid #6898DD'
     node.innerHTML = text
-    $('#lobbyDiv').append(node)
+    $(appearZone).append(node)
 };
 
 workshopButton.innerHTML = 'Workshop!'
@@ -35,7 +35,7 @@ $(getMoreBlock).append(workshopButton)
 //
 workshopButton.onclick = function getMenu() {
 
-   createEl(workshopMenu,'<h1>Workshop!</h1>')
+    createEl(workshopMenu, '#lobbyDiv' ,'<h1>Workshop!</h1>')
 
     // Close button
     workshopClose.innerHTML = 'Close'
