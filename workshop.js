@@ -20,8 +20,13 @@ class Block {
     };
     show(text) {
         this.$el.innerHTML = text
-        this.$el.style.display = 'block'
+        this.$el.style.background = '#6898DD'
+        this.$el.style.border = 2 + 'px solid #687edd'
+        this.$el.style.display = 'inlineGrid'
+        this.$el.style.marginTop = '2px'
         this.$el.position = 'absolute'
+        this.$el.style.width = 310 + 'px'
+        this.$el.height = 'auto'
         $(workshopMenu).append(this.$el)
     };
 
@@ -48,19 +53,24 @@ workshopButton.style.marginLeft = 2 + 'px'
 $(getMoreBlock).append(workshopButton)
 //
 
-
 workshopButton.onclick = function getMenu() {
 
-    createEl(workshopMenu, '#lobbyDiv' ,'<h1>Workshop!</h1>') /// Workshop menu
-    const block1 = new Block()
-    block1.show('hi!')
+    createEl(workshopMenu, '#lobbyDiv', '<h1>Workshop!</h1>') /// Workshop menu
 
-    // Close button
     workshopClose.innerHTML = 'Close'
     workshopClose.style.marginTop = 8 + 'px'
     workshopClose.style.marginLeft = 90 + '%'
     workshopClose.onclick = () => workshopMenu.remove()
-
     $(workshopMenu).append(workshopClose)
+
+    // Init
+    const lazziBlock = new Block()
+    const silverBlock = new Block()
+    const rynusBlock = new Block()
+
+    lazziBlock.show('<h1> Lazzi </h1>')
+    silverBlock.show('<h1> Silverboss </h1>')
+    rynusBlock.show('<h1> Rynus </h1>')
+
 
 }
