@@ -11,12 +11,15 @@ const workshopButton = document.createElement('button')
 const workshopClose = document.createElement('button');
 const workshopMenu = document.createElement('div')
 
-
+const lazziLink = new Map([['https://github.com/Lazzi0706/workshop-lwg', 'Workshop'], ['https://github.com/Lazzi0706/LanguageChangerForLWG', 'Language Changer']])
+const silverLink = new Map([['https://github.com/Lazzi0706/workshop-lwg', 'Buildorder tool'], ['https://github.com/Lazzi0706/LanguageChangerForLWG', 'Language changer by Silver']])
+const rynusLink = new Map([['https://github.com/Lazzi0706/workshop-lwg', 'Somemod'], ['https://github.com/Lazzi0706/LanguageChangerForLWG', 'Somemod']])
 
 class Block {
 
-    constructor() {
+    constructor(id) {
         this.$el = document.createElement('div')
+        this.$el.id = id;
     };
     show(text) {
         this.$el.innerHTML = text
@@ -64,13 +67,36 @@ workshopButton.onclick = function getMenu() {
     $(workshopMenu).append(workshopClose)
 
     // Init
-    const lazziBlock = new Block()
-    const silverBlock = new Block()
-    const rynusBlock = new Block()
+    const lazziBlock = new Block('lazziId')
+    const silverBlock = new Block('silverId')
+    const rynusBlock = new Block('rynusId')
 
     lazziBlock.show('<h1> Lazzi </h1>')
     silverBlock.show('<h1> Silverboss </h1>')
     rynusBlock.show('<h1> Rynus </h1>')
 
+    for (var [link, value] of lazziLink) {
+
+        let info = ' '
+        info += '<a>' + value + '</a>'
+        $('#lazziId').append(info)
+
+    };
+
+    for (var [link, value] of silverLink) {
+
+        let info = ' '
+        info += '<a>' + value + '</a>'
+        $('#silverId').append(info)
+
+    };
+
+    for (var [link, value] of rynusLink) {
+
+        let info = ' '
+        info += '<a>' + value + '</a>'
+        $('#rynusId').append(info)
+
+    };
 
 }
