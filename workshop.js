@@ -10,10 +10,24 @@ const getMoreBlock = document.getElementById('playerGoldWrap')
 const workshopButton = document.createElement('button')
 const workshopClose = document.createElement('button');
 const workshopMenu = document.createElement('div')
+
+
+
+class Block {
+
+    constructor() {
+        this.$el = document.createElement('div')
+    };
+    show(text) {
+        this.$el.innerHTML = text
+        this.$el.style.display = 'block'
+        this.$el.position = 'absolute'
+        $(workshopMenu).append(this.$el)
+    };
+
+};
+
 //
-
-
-// init
 function createEl(node, appearZone ,text) {
     node.style.position = 'absolute'
     node.style.zIndex = 1;
@@ -27,15 +41,19 @@ function createEl(node, appearZone ,text) {
     node.innerHTML = text
     $(appearZone).append(node)
 };
-
+    // Create button
 workshopButton.innerHTML = 'Workshop!'
 workshopButton.style.marginLeft = 2 + 'px'
 
 $(getMoreBlock).append(workshopButton)
 //
+
+
 workshopButton.onclick = function getMenu() {
 
-    createEl(workshopMenu, '#lobbyDiv' ,'<h1>Workshop!</h1>')
+    createEl(workshopMenu, '#lobbyDiv' ,'<h1>Workshop!</h1>') /// Workshop menu
+    const block1 = new Block()
+    block1.show('hi!')
 
     // Close button
     workshopClose.innerHTML = 'Close'
