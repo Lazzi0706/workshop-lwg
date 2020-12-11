@@ -8,14 +8,14 @@
 */
 const getMoreBlock = document.getElementById('playerGoldWrap')
 const workshopButton = document.createElement('button')
-const workshopClose = document.createElement('button');
+const workshopCloseButton = document.createElement('button');
 const workshopMenu = document.createElement('div')
 
 const lazziLink = new Map([['https://github.com/Lazzi0706/workshop-lwg', 'Workshop'], ['https://github.com/Lazzi0706/LanguageChangerForLWG', 'Language Changer']])
-const silverLink = new Map([['https://github.com/Lazzi0706/workshop-lwg', 'Buildorder tool'], ['https://github.com/Lazzi0706/LanguageChangerForLWG', 'Language changer by Silver']])
+const silverLink = new Map([['https://github.com/silverbossTD/project_js_lwg/blob/main/buildOrdersTool2.js', 'Buildorder tool'], ['https://github.com/silverbossTD/project_js_lwg/blob/main/pestBtnIgnore.js', 'Language changer by Silver']])
 const rynusLink = new Map([['https://github.com/Lazzi0706/workshop-lwg', 'Somemod'], ['https://github.com/Lazzi0706/LanguageChangerForLWG', 'Somemod']])
 
-class Block {
+class UserBlock {
 
     constructor(id) {
         this.$el = document.createElement('div')
@@ -32,10 +32,16 @@ class Block {
         this.$el.height = 'auto'
         $(workshopMenu).append(this.$el)
     };
-
 };
+function openLink(key, appearZone) {
+    for (var [link, text] of key) {
 
-//
+        let info = document.createElement('a')
+        info.innerHTML = text + ' '
+        info.onclick = () => window.open(link);
+        $(appearZone).append(info)
+    }
+};
 function createEl(node, appearZone ,text) {
     node.style.position = 'absolute'
     node.style.zIndex = 1;
@@ -60,43 +66,21 @@ workshopButton.onclick = function getMenu() {
 
     createEl(workshopMenu, '#lobbyDiv', '<h1>Workshop!</h1>') /// Workshop menu
 
-    workshopClose.innerHTML = 'Close'
-    workshopClose.style.marginTop = 8 + 'px'
-    workshopClose.style.marginLeft = 90 + '%'
-    workshopClose.onclick = () => workshopMenu.remove()
-    $(workshopMenu).append(workshopClose)
+    workshopCloseButton.innerHTML = 'Close'
+    workshopCloseButton.style.marginTop = 8 + 'px'
+    workshopCloseButton.style.marginLeft = 90 + '%'
+    workshopCloseButton.onclick = () => workshopMenu.remove()
+    $(workshopMenu).append(workshopCloseButton)
 
     // Init
-    const lazziBlock = new Block('lazziId')
-    const silverBlock = new Block('silverId')
-    const rynusBlock = new Block('rynusId')
+    const lazziContainer = new UserBlock('lazziId')
+    const silverContainer = new UserBlock('silverId')
+    const rynusContainer = new UserBlock('rynusId')
 
-    lazziBlock.show('<h1> Lazzi </h1>')
-    silverBlock.show('<h1> Silverboss </h1>')
-    rynusBlock.show('<h1> Rynus </h1>')
+    lazziContainer.show('<h1> Lazzi </h1>')
+    silverContainer.show('<h1> Silverboss </h1>')
+    rynusContainer.show('<h1> Rynus </h1>')
 
-    for (var [link, value] of lazziLink) {
-
-        let info = ' '
-        info += '<a>' + value + '</a>'
-        $('#lazziId').append(info)
-
-    };
-
-    for (var [link, value] of silverLink) {
-
-        let info = ' '
-        info += '<a>' + value + '</a>'
-        $('#silverId').append(info)
-
-    };
-
-    for (var [link, value] of rynusLink) {
-
-        let info = ' '
-        info += '<a>' + value + '</a>'
-        $('#rynusId').append(info)
-
-    };
-
+    openLink(lazziLink, lazziId)
+    openLink(silverLink, silverId)
 }
